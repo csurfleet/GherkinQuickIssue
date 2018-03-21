@@ -12,7 +12,7 @@ using Xunit.Gherkin.Quick;
 
 namespace SpecflowCoreTest.Specs.Steps
 {
-    [FeatureFile("../AliveMonitoring.feature")]
+    [FeatureFile("./AliveMonitoring.feature")]
     public class AliveMonitoring
     {
         TestServer _server;
@@ -32,7 +32,7 @@ namespace SpecflowCoreTest.Specs.Steps
             _response = await _client.GetAsync("/api/values");
         }
 
-        [Then(@"a response is returned with the HTTP status code (\d+")]
+        [Then(@"a response is returned with the HTTP status code (\d)")]
         public void A_response_is_returned_with_the_HTTP_status_code(int statusCode)
         {
             _response.StatusCode.Should().Be((HttpStatusCode)statusCode);
